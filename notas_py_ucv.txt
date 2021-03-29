@@ -1,0 +1,20 @@
+home -> comentario de clientes(backend)
+produce {
+ -> listado de categorias(backend) 
+ -> listados de producto x categoria(backend - pendiente)
+ -> venta de productos, carrito de compra
+}
+firms -> listado de proveedor con quien trabaja(backend - cms)
+vision -> informacion de la empresa texto e imagenes(backend)
+blog {
+ -> listado de categorias basadas en blog(backend), notificaion al administrador par postear(backend)
+ -> pagina detalle de post, comentario(backend)
+ -> ver perfil del usuario, compartir con fb, twiter, etc.
+}
+register -> backend
+login -> backend
+{
+paginas de error
+404
+}
+
