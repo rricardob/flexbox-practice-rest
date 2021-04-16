@@ -1,7 +1,6 @@
 CREATE TABLE `categoria`  (
   `id_categoria` bigint NOT NULL AUTO_INCREMENT,
   `nombre_categoria` varchar(255) NULL,
-  `fechareg_categoria` timestamp NULL,
   PRIMARY KEY (`id_categoria`)
 );
 
@@ -103,6 +102,7 @@ CREATE TABLE `usuario`  (
   PRIMARY KEY (`id_usuario`)
 );
 
+ALTER TABLE `categoria` ADD `fechareg_categoria` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
 ALTER TABLE `comentario` ADD CONSTRAINT `fk_post` FOREIGN KEY (`id_post`) REFERENCES `post` (`id_post`);
 ALTER TABLE `comentario` ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 ALTER TABLE `post` ADD CONSTRAINT `fk_categoriaPost` FOREIGN KEY (`id_categoriaPost`) REFERENCES `categoriaPost` (`id_categoriaPost`);
