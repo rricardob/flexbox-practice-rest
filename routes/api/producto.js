@@ -8,7 +8,7 @@ const DBCategoriaProd = require('../../query/producto');
 router.get('/getCategoryProducts', (req, res) => {
   DBCategoriaProd.getCategoryProduct()
     .then(results => {
-      console.log(`result ${JSON.stringify(results)}`); //convert to json
+      // console.log(`result ${JSON.stringify(results)}`); //convert to json
       res.send(results); //send json
     })
 
@@ -22,7 +22,7 @@ router.get('/getProductsByCategory/:id', (req, res) => {
   let id = req.params.id;
   DBCategoriaProd.getProductsByCategory(id)
     .then(results => {
-      console.log(`result ${JSON.stringify(results)}`); //convert to json
+      // console.log(`result ${JSON.stringify(results)}`); //convert to json
       res.send(results); //send json
     })
 

@@ -9,16 +9,6 @@ const dbconnection = mysql.createConnection({
 });
 
 //Connect DB
-// dbconnection.connect(function (err) {
-//   if (err) {
-//     console.log(`Connection Failed ${err.stack}`);
-//     return;
-//   }
-
-//   console.log(`Connection Successful`);
-// });
-
-// Refactorizado por Tello - Revisar
 dbconnection.connect(err => {
   err
     ? console.log(`Connection Failed ${err.stack}`)

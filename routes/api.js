@@ -22,7 +22,7 @@ router.use('/empresa', apiEmpresaRouter);
 //Define Path Proveedor
 router.use('/proveedor', apiProveedorRouter);
 
-//Define Path Categoria Producto
+//Define Path Categoría Producto
 router.use('/producto', apiProducto);
 
 //Export
