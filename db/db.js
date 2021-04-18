@@ -5,7 +5,7 @@ const dbconnection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'ucv_project',
+  database: 'node_js',
 });
 
 //Connect DB
