@@ -16,8 +16,12 @@ router.post('/insertUser', (req, res) => {
 
 });
 
-router.get('/', (req, res) => {
-    DBUser.getUsuario().then(results => {
+router.post('/login', (req, res) => {
+    let obj = req.body
+    let user = obj.cod_usuario
+    let pass = obj.password_usuario
+    
+    DBUser.login(user, pass).then(results => {
         console.log(`result ${JSON.stringify(results)}`); //convert to json
         res.send(results); //send json
     })

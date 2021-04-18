@@ -1,15 +1,15 @@
 const dbconnection = require("../db/db");
 
 //Define DB Query
-let getUsuario = () => {
+let login = (user, pass) => {
     //Promise
     return new Promise ((resolve, reject) => {
         //Define Query
-        let sql = 'SELECT * FROM usuario';
+        let sql = 'SELECT * FROM usuario WHERE usuario.cod_usuario = ? and usuario.password_usuario = ?';
         /*let sql = 'SELECT * FROM usuario u inner join perfil p on u.id_perfil = p.id_perfil where id_usuario = ?';*/
 
         //Execute Query
-        dbconnection.query(sql , (err, results) => {
+        dbconnection.query(sql , [user, pass], (err, results) => {
             //Condition
             if(err){
                 return reject(err);
@@ -43,6 +43,6 @@ function insertUser(comment){
 
 //Export
 module.exports = {
-    getUsuario,
+    login,
     insertUser
 };

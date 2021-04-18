@@ -6,7 +6,7 @@ var connection = require("../db/db");
 
 function getCategoryPost() {
   return new Promise((resolve, reject) => {
-    let sql = "SELECT * from categoriapost";
+    let sql = "SELECT * from categoriapost WHERE categoriapost.estado_categoriaPost = 1 ORDER BY categoriapost.cantidadpost_categoriaPost";
     connection.query(sql, (err, results, fields) => {
       if (err) {
         return reject(err);
@@ -18,7 +18,7 @@ function getCategoryPost() {
 
 function getPostById(id) {
   return new Promise((resolve, reject) => {
-    let sql = "select * from post WHERE id_post = ?";
+    let sql = "SELECT post.*,	CONCAT( u.nom_usuario, ' ', u.ape_usuario ) AS usuario FROM	post	LEFT JOIN usuario u ON u.id_usuario = post.id_usuario WHERE	id_post = ?";
     connection.query(sql, id, (err, results, fields) => {
       if (err) {
         return reject(err);
@@ -30,7 +30,7 @@ function getPostById(id) {
 
 function getPosts() {
   return new Promise((resolve, reject) => {
-    let sql = "select * from post ORDER BY fechareg_post desc limit 3";
+    let sql = "SELECT post.*, cp.nombre_categoriaPost, CONCAT( u.nom_usuario, ' ', u.ape_usuario ) AS usuario  FROM post LEFT JOIN categoriapost cp ON cp.id_categoriaPost = post.id_categoriaPost LEFT JOIN usuario u ON u.id_usuario = post.id_usuario  WHERE cp.estado_categoriaPost = 1 AND post.estado_post = 1 ORDER BY peso_post";
     connection.query(sql, (err, results, fields) => {
       if (err) {
         return reject(err);
